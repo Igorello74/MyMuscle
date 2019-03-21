@@ -8,8 +8,8 @@ void libInit() {
     #ifdef DEBUG
         Serial.begin(9600);
     #endif
-    
-    Keypad key = Keypad( makeKeymap(KEY_KEYS), KEY_ROWS_PINS, KEY_COLS_PINS, KEY_ROWS, KEY_COLS);
+
+    Keypad keypad = Keypad( makeKeymap(KEYPAD_KEYS), KEYPAD_ROWS_PINS, KEYPAD_COLS_PINS, KEYPAD_ROWS, KEYPAD_COLS);
     
 }
 
