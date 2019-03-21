@@ -1,8 +1,12 @@
+#define DEBUG //debug on/off, comment to disable
+
 #include <Arduino.h>
 #include "libraries.h"
 
+
 void setup() {
   // put your setup code here, to run once:
+  libInit();
 
 }
 
