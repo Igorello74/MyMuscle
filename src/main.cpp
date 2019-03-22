@@ -1,7 +1,7 @@
 #define DEBUG //debug on/off, comment to disable
 
 #include <Arduino.h>
-#include "libraries.h"
+#include "MyMuscle.h"
 
 
 void setup() {

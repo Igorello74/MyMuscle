@@ -2,9 +2,10 @@
 #include "config.h" //config file for the project
 
 #include <Keypad.h>
-Keypad keypad = Keypad( makeKeymap(KEYPAD_KEYS), KEYPAD_ROWS_PINS, KEYPAD_COLS_PINS, KEYPAD_ROWS, KEYPAD_COLS);
+Keypad keypad = Keypad(makeKeymap(KEYPAD_KEYS), KEYPAD_ROWS_PINS, KEYPAD_COLS_PINS, KEYPAD_ROWS, KEYPAD_COLS);
 
 #include <TimerOne.h>
+#include <Wire.h>
 
 void libInit() {
     #ifdef DEBUG
