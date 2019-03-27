@@ -20,7 +20,7 @@ void keyHandler(KeypadEvent key) {
 	switch (keypad.getState())	{
 		case PRESSED:
 			if (key >= 48 and key <= 57) { // range 48-57 is digits in ASCII table
-				NULL;
+				debug("I saw a number!");
 			}
 			break;
 	
