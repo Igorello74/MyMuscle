@@ -7,7 +7,10 @@ void libInit() {
     #ifdef DEBUG
         Serial.begin(9600);
     #endif
-    ;
+    
+    //TimerOne initialization
+    Timer1.initialize();
+    pinMode(VALVE_PIN, OUTPUT);
 }
 
 #ifdef DEBUG
@@ -19,16 +22,15 @@ void libInit() {
 
 class Stick() {
 	public:
-		Stick(byte &_pin, int16_t &_minVal, int16_t &_maxVal) {
+		Stick(byte &_pin, byte &_minVal, byte &_maxVal) {
 			pin = _pin;
 			minVal = _minVal;
 			maxVal = _maxVal;
 			
 			pinMode(pin, INPUT);
 		}
-		int getVal() {return map(getValRaw(), 0, 1024, minVal, maxVal);}
+		byte getVal() {return map(getValRaw(), 0, 1024, minVal, maxVal);}
 		uint16_t getValRaw() {return analogRead(pin);}
 	private:
-		byte pin;
-		int16_t minVal, maxVal;
+		byte pin, minVal, maxVal;
 };

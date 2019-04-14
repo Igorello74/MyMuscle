@@ -1,8 +1,18 @@
-//sticks settings
-#define STICK1_PIN 5 //the pin which the stick is connected to
-#define STICK1_MINVAL 0 //the maximal value that might be on the stick
-#define STICK1_MAXVAL 20000 //the minimal value that might be on the stick
+//---STICKS SETTINGS---
 
-#define STICK2_PIN 6 //same as in the stick 1 ^^^
-#define STICK2_MINVAL 0
-#define STICK2_MAXVAL 20000
+//STICK 1 ? frequency setting (currently period setting)
+#define STICK1_PIN A0 //the pin which the stick is connected to
+#define STICK1_MINVAL 1 //the maximal value that might be on the stick
+#define STICK1_MAXVAL 30 //the minimal value that might be on the stick
+
+//STICK 2 ? duty setting
+#define STICK2_PIN A1 //same as in the stick 1 ^^^
+#define STICK2_MINVAL 0 //non-used
+#define STICK2_MAXVAL 0 //non-used
+
+//valve settings
+#define VALVE_PIN 9 //the pin which the valve is connected to
+#define VALVE_DEFAULT_PERIOD 100000 /* the default period
+off the timer (valve) in ?s (microseconds)*/
+#define VALVE_DEFAULT_DUTY 512 /* the default duty off the timer (valve)
+in fractions of 1024 (0 - 0%, 512 - 50%, 1024 - 100%) */
