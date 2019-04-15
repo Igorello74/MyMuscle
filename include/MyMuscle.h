@@ -20,9 +20,9 @@ void libInit() {
 #define debug(n) NULL;
 #endif
 
-class Stick() {
+class Stick {
 	public:
-		Stick(byte &_pin, byte &_minVal, byte &_maxVal) {
+		Stick(byte _pin, byte _minVal, byte _maxVal) {
 			pin = _pin;
 			minVal = _minVal;
 			maxVal = _maxVal;
