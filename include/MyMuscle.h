@@ -2,15 +2,22 @@
 #include "config.h" //config file for the project
 
 #include <TimerOne.h>
+#include <LiquidCrystal_I2C.h>
+LiquidCrystal_I2C lcd(LCD_ADDRESS,LCD_COLS,LCD_ROWS);
 
 void libInit() {
     #ifdef DEBUG
         Serial.begin(9600);
     #endif
     
-    //TimerOne initialization
-    Timer1.initialize();
+	//---VALVE---
+    Timer1.initialize(); //TimerOne initialization (included object)
     pinMode(VALVE_PIN, OUTPUT);
+
+	//---DISPLAY---
+	lcd.init();
+	lcd.backlight();
+
 }
 
 #ifdef DEBUG
@@ -34,3 +41,11 @@ class Stick {
 	private:
 		byte pin, minVal, maxVal;
 };
+
+void lcdWelcome() {
+	lcd.home();
+	lcd.print(F("   Welcome to   "));
+	lcd.print(F("MyMuscle system!"));
+	delay(1000);
+	lcd.clear();
+}
