@@ -46,8 +46,9 @@ void lcdWelcome() {
 	debug("LCD greeting started");
 	lcd.home();
 	lcd.print(F("   Welcome to   "));
+	lcd.setCursor(0, 1);
 	lcd.print(F("MyMuscle system!"));
-	delay(1000);
+	delay(5000);
 	lcd.clear();
 	debug("LCD greeting finished");
 }
