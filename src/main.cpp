@@ -38,5 +38,6 @@ void loop() {
 		lastFreq = currentFreq; //remembering the last condition of variables
 		lastDuty = currentDuty;
 	}
+	delay(LCD_DELAY);
 	debug("Tick");
 }

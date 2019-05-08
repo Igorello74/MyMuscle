@@ -21,3 +21,4 @@ in fractions of 1024 (0 - 0%, 512 - 50%, 1024 - 100%) */
 #define LCD_ADDRESS 0x27    //I²C address of the display
 #define LCD_COLS    16      //number of columns on the display (characters)
 #define LCD_ROWS    2       //number of rows on the display (lines)
+#define LCD_DELAY   200     //delay between frame update
