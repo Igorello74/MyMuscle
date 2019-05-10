@@ -1,5 +1,5 @@
 #define DEBUG	//debug on/off, comment to disable debug
-#define DEMO	//means that it doesn't care of potentiometers and uses a generator (increases parameters and then resets)
+#define DEMO	//means that it doesn't care of potentiometers and uses a generator (increases frequency and then resets)
 
 #include <Arduino.h>
 #include "MyMuscle.h"
@@ -19,12 +19,16 @@ void setup() {
 }
 
 void loop() {
-	//----------------------------------------------------------------
 	static byte lastFreq = 0;
 	static uint16_t lastDuty = 0;
 	
+	#ifndef DEMO
 	byte currentFreq = stick[0].getVal();
 	uint16_t currentDuty = stick[1].getValRaw();
+	#else
+	byte currentFreq = lastFreq + 1;
+	uint16_t currentDuty = lastDuty;
+	#endif
 	
 	if (currentFreq != lastFreq or currentDuty != lastDuty) {
 		debug("New values: freq=" + String(currentFreq) +
@@ -42,6 +46,6 @@ void loop() {
 		lastFreq = currentFreq; //remembering the last condition of variables
 		lastDuty = currentDuty;
 	}
-	delay(LCD_DELAY);
+	delay(CYCLE_DELAY);
 	debug("Tick");
 }

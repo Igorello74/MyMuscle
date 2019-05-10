@@ -27,6 +27,7 @@ void libInit() {
 #define debug(n) NULL;
 #endif
 
+#ifndef DEMO
 class Stick {
 	public:
 		Stick(byte _pin, byte _minVal, byte _maxVal) {
@@ -41,6 +42,7 @@ class Stick {
 	private:
 		byte pin, minVal, maxVal;
 };
+#endif
 
 void lcdWelcome() {
 	debug("LCD greeting started");

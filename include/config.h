@@ -1,3 +1,7 @@
+//---GENERAL SETTINGS---
+#define CYCLE_DELAY 200 //delay between every cycle (I mean, every tick)
+
+#ifndef DEMO
 //---STICKS SETTINGS---
 //STICK 1 - frequency setting (currently period setting)
 #define STICK1_PIN      A0  //the pin which the stick is connected to
@@ -8,7 +12,7 @@
 #define STICK2_PIN      A1  //same as in the stick 1 ^^^
 #define STICK2_MINVAL   0   //non-used
 #define STICK2_MAXVAL   0   //non-used
-
+#endif
 
 //---VALVE SETTINGS---
 #define VALVE_PIN               9 //the pin which the valve is connected to
@@ -21,4 +25,3 @@ in fractions of 1024 (0 - 0%, 512 - 50%, 1024 - 100%) */
 #define LCD_ADDRESS 0x27    //I²C address of the display
 #define LCD_COLS    16      //number of columns on the display (characters)
 #define LCD_ROWS    2       //number of rows on the display (lines)
-#define LCD_DELAY   200     //delay between frame update
