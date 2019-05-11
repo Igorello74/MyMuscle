@@ -30,9 +30,9 @@ used in the library, also configures the debugging messages.
  * @name Arduino's parallel "LiquidCrystal" library
  * @{
  */
-#define LIQUIDMENU_LIBRARY LiquidCrystal_LIBRARY
-#include <LiquidCrystal.h>
-#define DisplayClass LiquidCrystal
+// #define LIQUIDMENU_LIBRARY LiquidCrystal_LIBRARY
+// #include <LiquidCrystal.h>
+// #define DisplayClass LiquidCrystal
 //!@}
 
 /*!
@@ -40,9 +40,9 @@ used in the library, also configures the debugging messages.
  * @see https://github.com/johnrickman/LiquidCrystal_I2C
  * @{
  */
-// #define LIQUIDMENU_LIBRARY LiquidCrystal_I2C_LIBRARY
-// #include <LiquidCrystal_I2C.h>
-// #define DisplayClass LiquidCrystal_I2C
+#define LIQUIDMENU_LIBRARY LiquidCrystal_I2C_LIBRARY
+#include <LiquidCrystal_I2C.h>
+#define DisplayClass LiquidCrystal_I2C
 //!@}
 
 /*!
