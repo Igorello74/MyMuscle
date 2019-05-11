@@ -1,9 +1,10 @@
-//File to include libraries and other header file into project
-#include "config.h" //config file for the project
+//A file to include other header files into project and declare classes
 
-#include <TimerOne.h>
-#include <LiquidCrystal_I2C.h>
-LiquidCrystal_I2C lcd(LCD_ADDRESS,LCD_COLS,LCD_ROWS);
+#include "config.h" //a config file for the project
+
+#include "libraries.h" //a file that includes  and declares some libraries
+
+
 
 void libInit() {
     #ifdef DEBUG
