@@ -1,8 +1,5 @@
 //A file that contains all operations with LiquidMenu lib
 
-#define SCR_WELCOME 0
-#define SCR_MAIN 1
-
 namespace menu {
 	namespace welcome {
 		LiquidLine line1(0, 0, "   Welcome to   ");
@@ -12,11 +9,23 @@ namespace menu {
 	}
 	namespace main {
 		LiquidLine titleLine(0, 0, "frequency   duty");
+		
 		LiquidLine freqLine(0, 1, freq,"Hz");
+		freqLine.set_focusPosition(Position::RIGHT);
+		
 		LiquidLine dutyLine(11, 1, duty,"%");
+		dutyLine.set_focusPosition(Position::LEFT);
 
 		LiquidScreen scr(titleLine, freqLine, dutyLine);
+		
+		/* this screen looks like so, where ← and → are focuses:
+			╔═╦═╦═╦═╦═╦═╦═╦═╦═╦═╦═╦═╦═╦═╦═╦═╗
+			║f║r║e║q║u║e║n║c║y║ ║ ║ ║d║u║t║y║
+			╠═╬═╬═╬═╬═╬═╬═╬═╬═╬═╬═╬═╬═╬═╬═╬═╣
+			║8║H║z║←║ ║ ║ ║ ║ ║ ║ ║→║5║0║%║ ║
+			╚═╩═╩═╩═╩═╩═╩═╩═╩═╩═╩═╩═╩═╩═╩═╩═╝ */
 	}
+	LiquidMenu menu(lcd, welcome::scr, main::scr);
 }
 /*LiquidLine lines[][] = {
 	{

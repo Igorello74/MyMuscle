@@ -4,19 +4,23 @@
 
 #include "libraries.h" //a file that includes  and declares some libraries
 
+#include "menu.h" // a file with definitions of some objects from LiquidMenu
+
 void libInit() {
 	#ifdef MY_DEBUG
 		Serial.begin(9600);
 	#endif
 	
 	//---VALVE---
-	Timer1.initialize(); //TimerOne initialization (included object)
+	Timer1.initialize(); //TimerOne initialization
 	pinMode(VALVE_PIN, OUTPUT);
 
 	//---DISPLAY---
 	lcd.init();
 	lcd.backlight();
-
+	
+	menu::menu.init(); //the initialization of LiquidMenu
+	
 }
 
 #ifdef MY_DEBUG
