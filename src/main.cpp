@@ -4,9 +4,12 @@
 #include <Arduino.h>
 #include "MyMuscle.h"
 
+byte freq, duty;
+
+#include "menu.h" // a file with definitions of some objects from LiquidMenu
+
 void setup() {
 	libInit(); //libraries initialization
-	lcdWelcome(); //a welcome message on the lcd display
 	Timer1.pwm(VALVE_PIN, VALVE_DEFAULT_DUTY, VALVE_DEFAULT_PERIOD); //start generating PWM
 	
 }

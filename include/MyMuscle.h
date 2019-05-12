@@ -4,8 +4,6 @@
 
 #include "libraries.h" //a file that includes  and declares some libraries
 
-#include "menu.h" // a file with definitions of some objects from LiquidMenu
-
 void libInit() {
 	#ifdef MY_DEBUG
 		Serial.begin(9600);

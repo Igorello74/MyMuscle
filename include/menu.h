@@ -10,7 +10,14 @@ namespace menu {
 		
 		LiquidScreen scr(line1, line2);
 	}
-	namespace 
+	namespace main {
+		LiquidLine titleLine(0, 0, "frequency   duty");
+		LiquidLine freqLine(0, 1, freq,"Hz");
+		LiquidLine dutyLine(11, 1, duty,"%");
+
+		LiquidScreen scr(titleLine, freqLine, dutyLine);
+	}
+}
 /*LiquidLine lines[][] = {
 	{
 		
