@@ -4,7 +4,7 @@
 
 #include "libraries.h" //a file that includes  and declares some libraries
 
-
+#include "menu.h" // a file with definitions of some objects from LiquidMenu
 
 void libInit() {
     #ifdef DEBUG
@@ -28,23 +28,7 @@ void libInit() {
 #define debug(n) NULL;
 #endif
 
-#ifndef DEMO
-class Stick {
-	public:
-		Stick(byte _pin, byte _minVal, byte _maxVal) {
-			pin = _pin;
-			minVal = _minVal;
-			maxVal = _maxVal;
-			
-			pinMode(pin, INPUT);
-		}
-		byte getVal() {return map(getValRaw(), 0, 1024, minVal, maxVal);}
-		uint16_t getValRaw() {return analogRead(pin);}
-	private:
-		byte pin, minVal, maxVal;
-};
-#endif
-
+/*
 void lcdWelcome() {
 	debug("LCD greeting started");
 	lcd.home();
@@ -54,4 +38,4 @@ void lcdWelcome() {
 	delay(5000);
 	lcd.clear();
 	debug("LCD greeting finished");
-}
+}*/
