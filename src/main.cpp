@@ -1,5 +1,5 @@
-#define DEBUG	//debug on/off, comment to disable debug
-#define DEMO	//means that it doesn't care of potentiometers and uses a generator (increases frequency and then resets)
+#define MY_DEBUG	//debug on/off, comment to disable debug
+#define MY_DEMO		//means that it doesn't care of potentiometers and uses a generator (increases frequency and then resets)
 
 #include <Arduino.h>
 #include "MyMuscle.h"

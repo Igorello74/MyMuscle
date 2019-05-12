@@ -7,13 +7,13 @@
 #include "menu.h" // a file with definitions of some objects from LiquidMenu
 
 void libInit() {
-    #ifdef DEBUG
-        Serial.begin(9600);
-    #endif
-    
+	#ifdef MY_DEBUG
+		Serial.begin(9600);
+	#endif
+	
 	//---VALVE---
-    Timer1.initialize(); //TimerOne initialization (included object)
-    pinMode(VALVE_PIN, OUTPUT);
+	Timer1.initialize(); //TimerOne initialization (included object)
+	pinMode(VALVE_PIN, OUTPUT);
 
 	//---DISPLAY---
 	lcd.init();
@@ -21,7 +21,7 @@ void libInit() {
 
 }
 
-#ifdef DEBUG
+#ifdef MY_DEBUG
 #define debug(n) Serial.println("***"+String(n)+"***")
 
 #else
