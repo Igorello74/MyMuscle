@@ -2,9 +2,9 @@
 #define MY_DEMO		//means that it doesn't care of potentiometers and uses a generator (increases frequency and then resets)
 
 #include <Arduino.h>
+byte freq, duty;
 #include "MyMuscle.h"
 
-byte freq, duty;
 
 void setup() {
 	libInit(); //libraries initialization
