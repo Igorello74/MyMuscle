@@ -7,9 +7,7 @@
 #include "menu.h" // a file with definitions of some objects from LiquidMenu
 
 void libInit() {
-	#ifdef MY_DEBUG
-		Serial.begin(9600);
-	#endif
+	Serial.begin(9600);
 	
 	//---VALVE---
 	Timer1.initialize(); //TimerOne initialization
