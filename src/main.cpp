@@ -17,3 +17,20 @@ void loop() {
 	delay(CYCLE_DELAY);
 	debug("Tick");
 }
+
+// ----------------------------------------------------------TO USE LATER
+/*
+void keyHandler(KeypadEvent key) {
+	switch (keypad.getState())	{
+		case PRESSED:
+			if (key >= "1" and key <= "9") { // range 48-57 is digits in ASCII table
+				NULL;
+			}
+			break;
+	
+		default:
+			NULL;
+			break;
+	}
+}
+*/
