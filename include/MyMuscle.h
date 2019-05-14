@@ -18,6 +18,9 @@ void libInit() {
 	lcd.backlight();
 	
 	menu::menu.init(); //the initialization of LiquidMenu
+	menu::main::freqLine.set_focusPosition(Position::RIGHT);
+	menu::main::dutyLine.set_focusPosition(Position::LEFT);
+
 	
 }
 

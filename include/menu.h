@@ -9,12 +9,8 @@ namespace menu {
 	}
 	namespace main {
 		LiquidLine titleLine(0, 0, "frequency   duty");
-		
 		LiquidLine freqLine(0, 1, freq,"Hz");
-		freqLine.set_focusPosition(Position::RIGHT);
-		
 		LiquidLine dutyLine(11, 1, duty,"%");
-		dutyLine.set_focusPosition(Position::LEFT);
 
 		LiquidScreen scr(titleLine, freqLine, dutyLine);
 		
