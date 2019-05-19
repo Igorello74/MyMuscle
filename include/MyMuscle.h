@@ -1,5 +1,11 @@
 //A file to include other header files into project and declare classes
 
+#ifdef MY_DEBUG
+#define debug(n) Serial.println("***"+String(n)+"***")
+#else
+#define debug(n) NULL;
+#endif
+
 #include "config.h" //a config file for the project
 
 #include "libraries.h" //a file that includes  and declares some libraries
@@ -23,9 +29,3 @@ void libInit() {
 	
 }
 
-#ifdef MY_DEBUG
-#define debug(n) Serial.println("***"+String(n)+"***")
-
-#else
-#define debug(n) NULL;
-#endif
