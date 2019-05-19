@@ -23,7 +23,7 @@ namespace menu {
 	}
 	LiquidMenu menu(lcd, welcome::scr, main::scr);
 	
-	void welcome() {
+	void greeting() {
 		debug("LCD greeting started");
 		menu::menu=menu::welcome::scr;
 		menu::menu.update();
