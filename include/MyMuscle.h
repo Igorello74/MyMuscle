@@ -17,10 +17,9 @@ void libInit() {
 	lcd.init();
 	lcd.backlight();
 	
-	menu::menu.init(); //the initialization of LiquidMenu
 	menu::main::freqLine.set_focusPosition(Position::RIGHT);
 	menu::main::dutyLine.set_focusPosition(Position::LEFT);
-
+	menu::menu.init(); //the initialization of LiquidMenu
 	
 }
 
@@ -30,15 +29,3 @@ void libInit() {
 #else
 #define debug(n) NULL;
 #endif
-
-/*
-void lcdWelcome() {
-	debug("LCD greeting started");
-	lcd.home();
-	lcd.print(F("   Welcome to   "));
-	lcd.setCursor(0, 1);
-	lcd.print(F("MyMuscle system!"));
-	delay(5000);
-	lcd.clear();
-	debug("LCD greeting finished");
-}*/

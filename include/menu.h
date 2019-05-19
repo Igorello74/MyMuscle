@@ -22,24 +22,12 @@ namespace menu {
 			╚═╩═╩═╩═╩═╩═╩═╩═╩═╩═╩═╩═╩═╩═╩═╩═╝ */
 	}
 	LiquidMenu menu(lcd, welcome::scr, main::scr);
-}
-/*LiquidLine lines[][] = {
-	{
-		
+	
+	void welcome() {
+		debug("LCD greeting started");
+		menu::menu=menu::welcome::scr;
+		menu::menu.update();
+		delay(5000);
+		debug("LCD greeting finished");
 	}
-	{
-		//
-	}
 }
-		
-
-LiquidScreen screens[] = {
-	LiquidScreen( //welcome screen
-		lines[SCR_WELCOME][0],
-		lines[SCR_WELCOME][1]
-	),
-	LiquidScreen( //main screen
-		LiquidLine(0, 0, "                "),
-		LiquidLine(0, 1, "MyMuscle system!")
-	)
-}*/

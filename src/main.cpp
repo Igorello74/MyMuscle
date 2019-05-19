@@ -8,7 +8,11 @@ byte freq, duty;
 
 void setup() {
 	libInit(); //libraries initialization
-	Timer1.pwm(VALVE_PIN, VALVE_DEFAULT_DUTY, VALVE_DEFAULT_PERIOD); //start generating PWM
+	
+	menu::welcome(); //display greeting lines
+	
+	Timer1.pwm(VALVE_PIN, VALVE_DEFAULT_DUTY,
+		VALVE_DEFAULT_PERIOD); //start generating PWM
 	
 }
 
