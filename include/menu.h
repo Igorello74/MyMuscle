@@ -36,4 +36,5 @@ namespace menu {
 		main::freqLine.set_focusPosition(Position::RIGHT);
 		main::dutyLine.set_focusPosition(Position::LEFT);
 		menu.init();
+	}
 }
