@@ -35,11 +35,11 @@ void loop() {
 			", duty=" + String(currentDuty));
 		
 		lcd.clear();
-		lcd.print(F("F              %")); //the top line of the message
+		lcd.print(F("frequency   duty")); //the top line of the message
 		lcd.setCursor(0, 1);
-		lcd.print(currentFreq);
+		lcd.print(String(currentFreq)+" Hz");
 		lcd.setCursor(LCD_COLS-4, 1);	//setting a cursor to a needed position
-		lcd.print(map(currentDuty, 0, 1024, 0, 100)); //converting Duty to percentage format and printing that
+		lcd.print(String(map(currentDuty, 0, 1024, 0, 100))+'%'); //converting Duty to percentage format and printing that
 
 		Timer1.pwm(VALVE_PIN, currentDuty, 1000000/currentFreq); //setting new PWM parameters
 		
