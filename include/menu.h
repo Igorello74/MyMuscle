@@ -21,6 +21,7 @@ namespace menu {
 			║8║H║z║←║ ║ ║ ║ ║ ║ ║ ║→║5║0║%║ ║
 			╚═╩═╩═╩═╩═╩═╩═╩═╩═╩═╩═╩═╩═╩═╩═╩═╝ */
 	}
+	
 	LiquidMenu menu(lcd, welcome::scr, main::scr);
 	
 	void greeting() {
@@ -30,4 +31,9 @@ namespace menu {
 		delay(5000);
 		debug("LCD greeting finished");
 	}
+	
+	void init() {
+		main::freqLine.set_focusPosition(Position::RIGHT);
+		main::dutyLine.set_focusPosition(Position::LEFT);
+		menu.init();
 }

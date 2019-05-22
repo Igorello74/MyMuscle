@@ -13,7 +13,9 @@
 #include "menu.h" // a file with definitions of some objects from LiquidMenu
 
 void libInit() {
+	#ifdef MY_DEBUG
 	Serial.begin(9600);
+	#endif
 	
 	//---VALVE---
 	Timer1.initialize(); //TimerOne initialization
@@ -23,9 +25,7 @@ void libInit() {
 	lcd.init();
 	lcd.backlight();
 	
-	menu::main::freqLine.set_focusPosition(Position::RIGHT);
-	menu::main::dutyLine.set_focusPosition(Position::LEFT);
-	menu::menu.init(); //the initialization of LiquidMenu
-	
+	//---MENU---
+	menu::init();
 }
 
