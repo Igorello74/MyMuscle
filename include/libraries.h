@@ -6,3 +6,5 @@
 LiquidCrystal_I2C lcd(LCD_ADDRESS,LCD_COLS,LCD_ROWS);
 
 #include <LiquidMenu.h>
+
+#include <Keypad.h>
