@@ -41,6 +41,7 @@ void keyHandler() {
 	}
 	else if (currentKey == 'L') {
 		menu::menu.call_function(MENU_RETURN);
+	}
 }
 
 void loop() {
