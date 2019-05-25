@@ -3,13 +3,15 @@
 #define MENU_ADD_DIGIT 1 //number of the editing function of menu
 #define MENU_CLEAN     2 //number of the decreasing function of menu
 #define MENU_RETURN    3
+#define MENU_INCR      4
+#define MENU_DECR      5
 
 namespace menu {
 	void addDigitToVar(byte &var, byte numb) {
 		var = var*10 + numb;
 	}
 	
-	void returnChar(byte &var) { //returns the last char in a var (like backspace)
+	void returnChar(byte &var) { //removes the last char in a var (like backspace)
 		var = var/10;
 	}
 	
@@ -22,7 +24,7 @@ namespace menu {
 	namespace main {
 		LiquidLine titleLine(0, 0, "frequency   duty");
 		
-		LiquidLine freqLine(0, 1, freq,"Hz");
+		LiquidLine freqLine(0, 1, freq," Hz");
 		void freqEdit() {
 			addDigitToVar(freq, byte(currentKey-'0'));
 		}
@@ -31,6 +33,12 @@ namespace menu {
 		}
 		void freqReturn() {
 			returnChar(freq);
+		}
+		void freqIncr() {
+			freq++;
+		}
+		void freqDecr() {
+			freq--;
 		}
 		
 		LiquidLine dutyLine(11, 1, duty,"%");
@@ -43,6 +51,12 @@ namespace menu {
 		}
 		void dutyReturn() {
 			returnChar(duty);
+		}
+		void dutyIncr() {
+			duty++;
+		}
+		void dutyDecr() {
+			duty--;
 		}
 
 		LiquidScreen scr(titleLine, freqLine, dutyLine);
@@ -70,11 +84,15 @@ namespace menu {
 		main::freqLine.attach_function(MENU_ADD_DIGIT, main::freqEdit);
 		main::freqLine.attach_function(MENU_CLEAN, main::freqClean);
 		main::freqLine.attach_function(MENU_RETURN, main::freqReturn);
+		main::freqLine.attach_function(MENU_INCR, main::freqIncr);
+		main::freqLine.attach_function(MENU_DECR, main::freqDecr);
 		
 		main::dutyLine.set_focusPosition(Position::LEFT);
 		main::dutyLine.attach_function(MENU_ADD_DIGIT, main::dutyEdit);
-		main::freqLine.attach_function(MENU_CLEAN, main:: dutyClean);
-		main::freqLine.attach_function(MENU_RETURN, main:: dutyReturn);
+		main::dutyLine.attach_function(MENU_CLEAN, main:: dutyClean);
+		main::dutyLine.attach_function(MENU_RETURN, main:: dutyReturn);
+		main::dutyLine.attach_function(MENU_INCR, main::dutyIncr);
+		main::dutyLine.attach_function(MENU_DECR, main::dutyDecr);
 		
 		menu.init();
 	}

@@ -25,7 +25,7 @@ void keyHandler() {
 	
 	if (currentKey >= '1' and currentKey <= '9') {
 		menu::menu.call_function(MENU_ADD_DIGIT);
-		debug("'Add a numb' case");
+		debug("A digit was added");
 	}
 	else if (currentKey == 'Y') {
 		valve::pwm(duty, freq);
@@ -39,9 +39,22 @@ void keyHandler() {
 	else if (currentKey == 'N') {
 		menu::menu.call_function(MENU_CLEAN);
 	}
-	else if (currentKey == 'L') {
+	else if (currentKey == '*') {
 		menu::menu.call_function(MENU_RETURN);
 	}
+	else if (currentKey == 'L') {
+		menu::menu.switch_focus(false);
+	}
+	else if (currentKey == 'R') {
+		menu::menu.switch_focus(true);
+	}
+	else if (currentKey == 'U') {
+		menu::menu.call_function(MENU_INCR);
+	}
+	else if (currentKey == 'D') {
+		menu::menu.call_function(MENU_DECR);
+	}
+		
 }
 
 void loop() {
