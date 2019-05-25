@@ -10,8 +10,9 @@
 
 #include "libraries.h" //a file that includes  and declares some libraries
 
-#include "menu.h" // a file with definitions of some objects from LiquidMenu
-#include "matrix.h" //a file with all the work with keyboard
+#include "valve.h"
+#include "menu.h"
+#include "matrix.h"
 
 void libInit() {
 	#ifdef MY_DEBUG

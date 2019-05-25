@@ -3,9 +3,9 @@
 
 //---VALVE SETTINGS---
 #define VALVE_PIN               9 //the pin which the valve is connected to
-#define VALVE_DEFAULT_PERIOD    100000 /* the default period
+#define VALVE_DEFAULT_FREQ 10 /* the default period
 off the timer (valve) in μs (microseconds)*/
-#define VALVE_DEFAULT_DUTY      512 /* the default duty off the timer (valve)
+#define VALVE_DEFAULT_DUTY 512 /* the default duty off the timer (valve)
 in fractions of 1024 (0 - 0%, 512 - 50%, 1024 - 100%) */
 
 //---DISPLAY SETTINGS---

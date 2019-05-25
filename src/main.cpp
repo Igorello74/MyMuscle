@@ -14,24 +14,23 @@ void setup() {
 	
 	menu::greeting(); //display greeting lines
 	
-	Timer1.pwm(VALVE_PIN, VALVE_DEFAULT_DUTY,
-		VALVE_DEFAULT_PERIOD); //start generating PWM
+	valve::pwm(VALVE_DEFAULT_DUTY,
+		VALVE_DEFAULT_FREQ); //start generating PWM
 	
 }
 
 void keyHandler() {
 	if (currentKey >= '1' and currentKey <= '9') {
 		menu::menu.call_function(MENU_ADD_NUMB);
-		menu::menu.update();
 	}
+	else if (currentKey == 'Y') {
+		valve::pwm(duty, freq);
 }
 
 void loop() {
 	currentKey = matrix::matrix.getKey();
 	
-	if (currentKey) {
-			keyHandler();
-		}
+	if (currentKey) keyHandler();
 	
 	delay(CYCLE_DELAY);
 	debug("Tick");
