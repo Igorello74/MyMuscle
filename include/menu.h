@@ -19,12 +19,12 @@ namespace menu {
 		
 		LiquidLine freqLine(0, 1, freq,"Hz");
 		void freqEdit() {
-			addNumbToVar(freq, (byte) currentKey-'0');
+			addNumbToVar(freq, currentKey-'0');
 		}
 		
 		LiquidLine dutyLine(11, 1, duty,"%");
 		void dutyEdit() {
-			addNumbToVar(duty, (byte) currentKey-'0');
+			addNumbToVar(duty, currentKey-'0');
 		}
 
 		LiquidScreen scr(titleLine, freqLine, dutyLine);
