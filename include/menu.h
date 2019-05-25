@@ -4,6 +4,10 @@
 // #define MENU_DECR 2 //number of the decreasing function of menu
 
 namespace menu {
+	void addNumbToVar(byte &var, byte &numb) {
+		var = var*10 + numb;
+	}
+	
 	namespace welcome {
 		LiquidLine line1(0, 0, "   Welcome to   ");
 		LiquidLine line2(0, 1, "MyMuscle system!");
@@ -43,16 +47,12 @@ namespace menu {
 		debug("LCD greeting finished");
 	}
 	
-	void addNumbToVar(byte &var, byte &numb) {
-		var = var*10 + numb;
-	}
-	
 	void init() {
 		main::freqLine.set_focusPosition(Position::RIGHT);
-		main::freqLine.attach_function(MENU_ADD_NUMB, freqEdit);
+		main::freqLine.attach_function(MENU_ADD_NUMB, main::freqEdit);
 		
 		main::dutyLine.set_focusPosition(Position::LEFT);
-		main::dutyLine.attach_function(MENU_ADD_NUMB, dutyEdit);
+		main::dutyLine.attach_function(MENU_ADD_NUMB, main::dutyEdit);
 		
 		menu.init();
 	}

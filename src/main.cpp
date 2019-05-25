@@ -19,22 +19,20 @@ void setup() {
 	
 }
 
-void loop() {
-	currentKey = matrix::matrix.getKey();
-	
-	if(currentKey) (
-			keyHandler();
-		}
-	
-	delay(CYCLE_DELAY);
-	debug("Tick");
-}
-
-// ----------------------------------------------------------TO USE LATER
-
 void keyHandler() {
 	if (currentKey >= '1' and currentKey <= '9') {
 		menu::menu.call_function(MENU_ADD_NUMB);
 		menu::update();
 	}
+}
+
+void loop() {
+	currentKey = matrix::matrix.getKey();
+	
+	if (currentKey) {
+			keyHandler();
+		}
+	
+	delay(CYCLE_DELAY);
+	debug("Tick");
 }
