@@ -4,7 +4,7 @@
 // #define MENU_DECR 2 //number of the decreasing function of menu
 
 namespace menu {
-	void addNumbToVar(byte &var, byte &numb) {
+	void addNumbToVar(byte &var, byte numb) {
 		var = var*10 + numb;
 	}
 	
@@ -19,12 +19,12 @@ namespace menu {
 		
 		LiquidLine freqLine(0, 1, freq,"Hz");
 		void freqEdit() {
-			addNumbToVar(freq, currentKey-'0');
+			addNumbToVar(freq, byte(currentKey-'0'));
 		}
 		
 		LiquidLine dutyLine(11, 1, duty,"%");
 		void dutyEdit() {
-			addNumbToVar(duty, currentKey-'0');
+			addNumbToVar(duty, byte(currentKey-'0'));
 		}
 
 		LiquidScreen scr(titleLine, freqLine, dutyLine);
