@@ -1,11 +1,16 @@
 //A file that contains all operations with LiquidMenu lib
 
-#define MENU_ADD_NUMB 1 //number of the editing function of menu
-// #define MENU_DECR 2 //number of the decreasing function of menu
+#define MENU_ADD_DIGIT 1 //number of the editing function of menu
+#define MENU_CLEAN     2 //number of the decreasing function of menu
+#define MENU_RETURN    3
 
 namespace menu {
-	void addNumbToVar(byte &var, byte numb) {
+	void addDigitToVar(byte &var, byte numb) {
 		var = var*10 + numb;
+	}
+	
+	void returnChar(byte &var) { //returns the last char in a var (like backspace)
+		var = var/10;
 	}
 	
 	namespace welcome {
@@ -19,12 +24,25 @@ namespace menu {
 		
 		LiquidLine freqLine(0, 1, freq,"Hz");
 		void freqEdit() {
-			addNumbToVar(freq, byte(currentKey-'0'));
+			addDigitToVar(freq, byte(currentKey-'0'));
+		}
+		void freqClean() {
+			freq = 0;
+		}
+		void freqReturn() {
+			returnChar(freq);
 		}
 		
 		LiquidLine dutyLine(11, 1, duty,"%");
 		void dutyEdit() {
-			addNumbToVar(duty, byte(currentKey-'0'));
+			addDigitToVar(duty, byte(currentKey-'0'));
+		}
+		
+		void dutyClean() {
+			duty = 0;
+		}
+		void dutyReturn() {
+			returnChar(duty);
 		}
 
 		LiquidScreen scr(titleLine, freqLine, dutyLine);
@@ -49,10 +67,14 @@ namespace menu {
 	
 	void init() {
 		main::freqLine.set_focusPosition(Position::RIGHT);
-		main::freqLine.attach_function(MENU_ADD_NUMB, main::freqEdit);
+		main::freqLine.attach_function(MENU_ADD_DIGIT, main::freqEdit);
+		main::freqLine.attach_function(MENU_CLEAN, main::freqClean);
+		main::freqLine.attach_function(MENU_RETURN, main::freqReturn);
 		
 		main::dutyLine.set_focusPosition(Position::LEFT);
-		main::dutyLine.attach_function(MENU_ADD_NUMB, main::dutyEdit);
+		main::dutyLine.attach_function(MENU_ADD_DIGIT, main::dutyEdit);
+		main::freqLine.attach_function(MENU_CLEAN, main:: dutyClean);
+		main::freqLine.attach_function(MENU_RETURN, main:: dutyReturn);
 		
 		menu.init();
 	}

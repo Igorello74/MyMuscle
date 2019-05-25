@@ -16,23 +16,53 @@ void setup() {
 	
 	valve::pwm(VALVE_DEFAULT_DUTY,
 		VALVE_DEFAULT_FREQ); //start generating PWM
+	debug("PWM initialization");
 	
-}
-
-void loop() {
-	currentKey = matrix::matrix.getKey();
-	
-	if (currentKey) keyHandler();
-	
-	delay(CYCLE_DELAY);
-	debug("Tick");
 }
 
 void keyHandler() {
+	debug("'" + String(currentKey)+"' was pressed");
+	
 	if (currentKey >= '1' and currentKey <= '9') {
-		menu::menu.call_function(MENU_ADD_NUMB);
+		menu::menu.call_function(MENU_ADD_DIGIT);
+		debug("'Add a numb' case");
 	}
 	else if (currentKey == 'Y') {
 		valve::pwm(duty, freq);
+		debug(
+			"New parameters was applied:\n\tfrequency = " +
+			String(freq) +
+			"\n\t duty = " +
+			String(duty);
+		);
 	}
+	else if (currentKey == 'N') {
+		menu::menu.call_function(MENU_CLEAR);
+	}
+	else if (currentKey == 'L') {
+		menu::menu.call_function(MENU_RETURN);
+}
+
+void loop() {
+	static byte lastFreq, lastDuty;
+	
+	currentKey = matrix::matrix.getKey();
+	if (currentKey) {
+		keyHandler();
+		debug("Key was handled");
+	}
+	else debug("No key was found");
+	
+	if (lastFreq != freq or lastDuty != duty) {
+		menu::menu.update();
+		
+		lastFreq = freq;
+		lastDuty = duty;
+		
+		debug("Menu was updated");
+	}
+	else debug("There was no change");
+	
+	delay(CYCLE_DELAY);
+	debug("Tick");
 }
