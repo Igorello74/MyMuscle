@@ -19,15 +19,6 @@ void setup() {
 	
 }
 
-void keyHandler() {
-	if (currentKey >= '1' and currentKey <= '9') {
-		menu::menu.call_function(MENU_ADD_NUMB);
-	}
-	else if (currentKey == 'Y') {
-		valve::pwm(duty, freq);
-	}
-}
-
 void loop() {
 	currentKey = matrix::matrix.getKey();
 	
@@ -35,4 +26,13 @@ void loop() {
 	
 	delay(CYCLE_DELAY);
 	debug("Tick");
+}
+
+void keyHandler() {
+	if (currentKey >= '1' and currentKey <= '9') {
+		menu::menu.call_function(MENU_ADD_NUMB);
+	}
+	else if (currentKey == 'Y') {
+		valve::pwm(duty, freq);
+	}
 }
