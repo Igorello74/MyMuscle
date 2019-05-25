@@ -5,4 +5,5 @@ namespace valve {
 			map(newDuty, 0, 100, 0, 1024),
 			1000000/newFreq
 		);
+	}
 }
