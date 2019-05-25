@@ -33,11 +33,11 @@ void keyHandler() {
 			"New parameters was applied:\n\tfrequency = " +
 			String(freq) +
 			"\n\t duty = " +
-			String(duty);
+			String(duty)
 		);
 	}
 	else if (currentKey == 'N') {
-		menu::menu.call_function(MENU_CLEAR);
+		menu::menu.call_function(MENU_CLEAN);
 	}
 	else if (currentKey == 'L') {
 		menu::menu.call_function(MENU_RETURN);
