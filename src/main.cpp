@@ -2,7 +2,10 @@
 #define MY_DEMO		//means that it doesn't care of potentiometers and uses a generator (increases frequency and then resets)
 
 #include <Arduino.h>
-byte freq, duty;
+
+byte freq, duty; // it HAS TO be global, otherwise it's impossible
+char currentKey; // that too
+
 #include "MyMuscle.h"
 
 
@@ -17,24 +20,21 @@ void setup() {
 }
 
 void loop() {
+	currentKey = matrix::matrix.getKey();
+	
+	if(currentKey) (
+			keyHandler();
+		}
 	
 	delay(CYCLE_DELAY);
 	debug("Tick");
 }
 
 // ----------------------------------------------------------TO USE LATER
-/*
-void keyHandler(KeypadEvent key) {
-	switch (keypad.getState())	{
-		case PRESSED:
-			if (key >= "1" and key <= "9") { // range 48-57 is digits in ASCII table
-				NULL;
-			}
-			break;
-	
-		default:
-			NULL;
-			break;
+
+void keyHandler() {
+	if (currentKey >= '1' and currentKey <= '9') {
+		menu::menu.call_function(MENU_ADD_NUMB);
+		menu::update();
 	}
 }
-*/

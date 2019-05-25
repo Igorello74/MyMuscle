@@ -6,4 +6,11 @@ namespace matrix {
 		{'7','8','9', '-'},
 		{'L','0','R', '+'}
 	};
-}
+	Keypad matrix(
+		makeKeymap(keys),
+		KEYPAD_ROWS_PINS,
+		KEYPAD_COLS_PINS,
+		KEYPAD_ROWS,
+		KEYPAD_COLS
+	);
+} 

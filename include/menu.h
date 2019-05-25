@@ -1,5 +1,8 @@
 //A file that contains all operations with LiquidMenu lib
 
+#define MENU_ADD_NUMB 1 //number of the editing function of menu
+// #define MENU_DECR 2 //number of the decreasing function of menu
+
 namespace menu {
 	namespace welcome {
 		LiquidLine line1(0, 0, "   Welcome to   ");
@@ -9,8 +12,16 @@ namespace menu {
 	}
 	namespace main {
 		LiquidLine titleLine(0, 0, "frequency   duty");
+		
 		LiquidLine freqLine(0, 1, freq,"Hz");
+		void freqEdit() {
+			addNumbToVar(freq, (byte) currentKey-'0');
+		}
+		
 		LiquidLine dutyLine(11, 1, duty,"%");
+		void dutyEdit() {
+			addNumbToVar(duty, (byte) currentKey-'0');
+		}
 
 		LiquidScreen scr(titleLine, freqLine, dutyLine);
 		
@@ -26,15 +37,23 @@ namespace menu {
 	
 	void greeting() {
 		debug("LCD greeting started");
-		menu::menu=menu::welcome::scr;
-		menu::menu.update();
+		menu=welcome::scr;
+		menu.update();
 		delay(5000);
 		debug("LCD greeting finished");
 	}
 	
+	void addNumbToVar(byte &var, byte &numb) {
+		var = var*10 + numb;
+	}
+	
 	void init() {
 		main::freqLine.set_focusPosition(Position::RIGHT);
+		main::freqLine.attach_function(MENU_ADD_NUMB, freqEdit);
+		
 		main::dutyLine.set_focusPosition(Position::LEFT);
+		main::dutyLine.attach_function(MENU_ADD_NUMB, dutyEdit);
+		
 		menu.init();
 	}
 }
