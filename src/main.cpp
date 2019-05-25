@@ -25,6 +25,7 @@ void keyHandler() {
 	}
 	else if (currentKey == 'Y') {
 		valve::pwm(duty, freq);
+	}
 }
 
 void loop() {
