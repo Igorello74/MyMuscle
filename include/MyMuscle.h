@@ -31,3 +31,7 @@ void libInit() {
 	menu::init();
 }
 
+void timerStart() {
+	timer_init_ISR_2Hz(TIMER_2);
+}
+

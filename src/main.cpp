@@ -1,5 +1,6 @@
 #define MY_DEBUG	//debug on/off, comment to disable debug
-#define MY_DEMO		//means that it doesn't care of potentiometers and uses a generator (increases frequency and then resets)
+#define MY_DEMO
+//means that it doesn't care of potentiometers and uses a generator (increases frequency and then resets)
 
 #include <Arduino.h>
 
@@ -16,7 +17,9 @@ void setup() {
 	
 	valve::pwm(VALVE_DEFAULT_DUTY,
 		VALVE_DEFAULT_FREQ); //start generating PWM
-	debug("PWM initialization");
+	debug("PWM initialization competed");
+	
+	timerStart();
 	
 }
 
@@ -67,7 +70,13 @@ void loop() {
 	}
 	else debug("No key was found");
 	
-	if (lastFreq != freq or lastDuty != duty) {
+	debug("Tick");
+}
+
+void timer_handle_interrupts(int timer) {
+	menu::menu.update();
+	if (lastFreq != freq 
+	or lastDuty != duty) {
 		menu::menu.update();
 		
 		lastFreq = freq;
@@ -76,7 +85,4 @@ void loop() {
 		debug("Menu was updated");
 	}
 	else debug("There was no change");
-	
-	delay(CYCLE_DELAY);
-	debug("Tick");
 }
