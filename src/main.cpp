@@ -61,8 +61,6 @@ void keyHandler() {
 }
 
 void loop() {
-	static byte lastFreq, lastDuty;
-	
 	currentKey = matrix::matrix.getKey();
 	if (currentKey) {
 		keyHandler();
@@ -74,9 +72,11 @@ void loop() {
 }
 
 void timer_handle_interrupts(int timer) {
-	menu::menu.update();
+	
+	static byte lastFreq, lastDuty;
+	
 	if (lastFreq != freq 
-	or lastDuty != duty) {
+	or  lastDuty != duty) {
 		menu::menu.update();
 		
 		lastFreq = freq;

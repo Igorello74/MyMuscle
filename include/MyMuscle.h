@@ -32,6 +32,6 @@ void libInit() {
 }
 
 void timerStart() {
-	timer_init_ISR_2Hz(TIMER_2);
+	timer_init_ISR_2Hz(_TIMER2);
 }
 
